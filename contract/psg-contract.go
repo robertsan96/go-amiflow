@@ -1,6 +1,6 @@
 package contract
 
-type PersistentStorageContract interface {
+type PersistentStorageGroupContract interface {
 	CreatePersistentStorageGroup(name string)
 	DeletePersistentStorageGroup(name string)
 }

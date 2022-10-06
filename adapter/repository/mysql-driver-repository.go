@@ -4,7 +4,7 @@ import "github.com/robertsan96/go-amiflow/contract"
 
 type mysqlDriverRepository struct{}
 
-func NewMysqlDriverRepository() contract.PersistentStorageContract {
+func NewMysqlDriverRepository() contract.PersistentStorageGroupContract {
 	return &mysqlDriverRepository{}
 }
 
