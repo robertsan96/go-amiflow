@@ -4,13 +4,17 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/robertsan96/go-amiflow/adapter/presenter"
+	"github.com/robertsan96/go-amiflow/usecase"
 )
 
 func main() {
 	r := gin.Default()
 
 	r.GET("/", func(ctx *gin.Context) {
-		ctx.JSON(http.StatusOK, gin.H{"status": "ok"})
+		psgService := usecase.NewPersistentStorageGroupService()
+		psgJsonPresenter := presenter.NewPersistentStorageGroupJsonPresenter(psgService)
+		ctx.JSON(http.StatusOK, gin.H{"data": psgJsonPresenter.ReadPersistentStorageGroup()})
 		return
 	})
 
