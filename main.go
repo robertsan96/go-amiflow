@@ -8,7 +8,7 @@ import (
 	"github.com/robertsan96/go-amiflow/usecase"
 )
 
-func main() {
+func startGinServer() {
 	r := gin.Default()
 
 	r.GET("/", func(ctx *gin.Context) {
@@ -19,4 +19,8 @@ func main() {
 	})
 
 	r.Run(":8080")
+}
+
+func main() {
+	startGinServer()
 }
