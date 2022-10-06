@@ -1,4 +1,4 @@
-package usecases
+package usecase
 
 type PersistentStorageService interface {
 	CreatePersistentStorage()
