@@ -1,14 +1,18 @@
 package router
 
-import "github.com/robertsan96/go-amiflow/router"
+import (
+	"fmt"
 
-type ginPersistentStorageGroupRouter struct {
-}
+	"github.com/gin-gonic/gin"
+	"github.com/robertsan96/go-amiflow/router"
+)
 
-func NewGinPersistentStorageGroupRouter() router.PersistentStorageGroupRouter {
+type ginPersistentStorageGroupRouter struct{}
+
+func NewGinPersistentStorageGroupRouter() router.PersistentStorageGroupRouter[*gin.Context] {
 	return &ginPersistentStorageGroupRouter{}
 }
 
-func (router *ginPersistentStorageGroupRouter) ReadPersistentStorageGroup(id string) {
-
+func (router *ginPersistentStorageGroupRouter) ReadPersistentStorageGroup(ctx *gin.Context) {
+	fmt.Println("Contexttt", ctx.Params)
 }

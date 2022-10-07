@@ -5,6 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/robertsan96/go-amiflow/adapter/presenter"
+	"github.com/robertsan96/go-amiflow/adapter/router"
 	"github.com/robertsan96/go-amiflow/usecase"
 )
 
@@ -18,6 +19,9 @@ func startGinServer() {
 		return
 	})
 
+	ginPsgRouter := router.NewGinPersistentStorageGroupRouter()
+
+	r.GET("/test", ginPsgRouter.ReadPersistentStorageGroup)
 	r.Run(":8080")
 }
 
